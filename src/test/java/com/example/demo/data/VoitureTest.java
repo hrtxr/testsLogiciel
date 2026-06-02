@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class VoitureTest {
 
     @Test
-    void testConstructeurVideEtSetters() {
+    void testConstructorVoidAndSetters() {
         // Arrange :
         Voiture voiture = new Voiture();
 
@@ -26,7 +26,7 @@ public class VoitureTest {
     }
 
     @Test
-    void testConstructeurParametreEtGetters() {
+    void testConstructorWithParameterAndGetters() {
         // Arrange & Act :
         Voiture voiture = new Voiture("Mercedes", 70400);
 
@@ -35,6 +35,20 @@ public class VoitureTest {
         assertEquals(70400, voiture.getPrix());
         // On vérifie si le constructeur a bien assigné automatiquement l'id
         assertEquals(0, voiture.getId()); 
+    }
+
+    @Test
+    void testToString() {
+        // Arrange : 
+        Voiture voiture = new Voiture("Tesla", 58138);
+        voiture.setId(5);
+
+        // Act :
+        String attendedResult = "Car{brand='Tesla', price=58138, id=5}";
+        String obtainedResult = voiture.toString();
+
+        // Assert :
+        assertEquals(attendedResult, obtainedResult);
     }
 
 }
