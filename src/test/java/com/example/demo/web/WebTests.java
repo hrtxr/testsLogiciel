@@ -36,5 +36,4 @@ class WebTests {
                 .content(jsonBody))
                 .andExpect(status().isOk());
     }
-
 }
