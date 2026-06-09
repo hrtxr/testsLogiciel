@@ -25,8 +25,16 @@ class WebTests {
     StatistiqueImpl statistiqueImpl;
 
     @Autowired
-    MockMvc mockMvc;
+    MockMvc MockMvc;
 
-  
+    @Test
+    public void testAjouterVoiture() throws Exception{
+        String jsonBody = "{\"marque\":\"f\",\"prix\":100}";
+
+        MockMvc.perform(post("/voiture")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(jsonBody))
+                .andExpect(status().isOk());
+    }
 
 }
